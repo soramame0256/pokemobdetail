@@ -28,7 +28,7 @@ public class EventListener {
 
                     if(is.getTagCompound().hasKey("level")) {
                         if(e.getFlags() == ITooltipFlag.TooltipFlags.ADVANCED){
-                            newLore.add(s.replace(" (#0383) ", " [Lv." + is.getTagCompound().getInteger("level") + (is.getTagCompound().hasKey("exp") ? ":exp." + is.getTagCompound().getInteger("exp") : "") + "] (#0383)"));
+                            newLore.add(s.replace(" (#0383)", " [Lv." + is.getTagCompound().getInteger("level") + (is.getTagCompound().hasKey("exp") ? ":exp." + is.getTagCompound().getInteger("exp") : "") + "] (#0383)"));
                         }else {
                             newLore.add(s.concat(" [Lv." + is.getTagCompound().getInteger("level")) + (is.getTagCompound().hasKey("exp") ? ":exp." + is.getTagCompound().getInteger("exp") : "") + "]");
                         }
