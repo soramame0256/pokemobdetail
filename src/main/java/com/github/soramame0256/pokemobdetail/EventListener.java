@@ -22,8 +22,11 @@ public class EventListener {
         if(so == null) return;
         if(!clearColor(so.getDisplayName()).contains("ポケットモブ")) return;
         if(is.getTagCompound() != null){
-            for (String s : e.getToolTip()){
-                if(s.contains("ATK:")) {
+            for (String s : e.getToolTip()) {
+                if (is.getTagCompound().hasKey("mobtype") && is.getTagCompound().getString("mobtype").equals(clearColor(s))){
+                    if(is.getTagCompound().hasKey("level")) newLore.add(s.concat(" [Lv." + is.getTagCompound().getInteger("level")) + (is.getTagCompound().hasKey("exp") ? ":exp." + is.getTagCompound().getInteger("exp") : "") +"]");
+                    else newLore.add(s);
+                } else if(s.contains("ATK:")) {
                     if(is.getTagCompound().hasKey("atk")) newLore.add(s.concat(" (" + is.getTagCompound().getInteger("atk")) + ")");
                     else newLore.add(s);
                 } else if(s.contains("DEF:")){
